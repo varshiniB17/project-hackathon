@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Secure Authentication</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('background.jpg'); /* Change to your background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+             /* Ensure text is visible */
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background */
+            color: white;
+        }
+        h2,h3{
+            color:white;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar text-white p-3">
+                <h3 class="text-center"><i class="fas fa-shield-alt"></i> Security Dashboard</h3>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fas fa-user"></i> User Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fas fa-exclamation-triangle"></i> Security Threats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fas fa-chart-bar"></i> Activity Logs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fas fa-cog"></i> System Settings</a>
+                    </li>
+                </ul>
+                <button class="btn btn-danger w-100 mt-3" onclick="logout()">Logout</button>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 col-lg-10 p-4">
+                <h2 class="mb-4">Welcome to Your Dashboard</h2>
+
+                <!-- User Info -->
+                <div class="card p-3 mb-3 d-flex align-items-center flex-row">
+                    <img src="user-icon.png" alt="User Icon" class="rounded-circle me-3" width="80" height="80">
+                    <div>
+                        <h4><i class="fas fa-user-circle"></i> User Information</h4>
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Email:</strong> john@example.com</p>
+                        <p><strong>Phone:</strong> +1234567890</p>
+                    </div>
+                </div>
+
+                <!-- Security Sections -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card bg-warning p-3 text-dark">
+                            <h5><i class="fas fa-exclamation-triangle"></i> Security Threat Level</h5>
+                            <p><strong>Status:</strong> Medium</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success p-3 text-white">
+                            <h5><i class="fas fa-user-check"></i> Active Users</h5>
+                            <p><strong>Count:</strong> 25</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger p-3 text-white">
+                            <h5><i class="fas fa-user-times"></i> Banned Users</h5>
+                            <p><strong>Count:</strong> 5</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                 <!-- Additional Security Stats -->
+                 <div class="row mt-3">
+                    <div class="col-md-4">
+                        <div class="card bg-secondary p-3 text-white">
+                            <h5><i class="fas fa-user-clock"></i> Inactive Users</h5>
+                            <p><strong>Count:</strong> 10</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark p-3 text-white">
+                            <h5><i class="fas fa-times-circle"></i> Failed Login Attempts</h5>
+                            <p><strong>Count:</strong> 18</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-info p-3 text-white">
+                            <h5><i class="fas fa-history"></i> Security Logs</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-check-circle"></i> Admin logged in - 10:45 AM</li>
+                                <li><i class="fas fa-user-lock"></i> 5 Failed login attempts - 9:30 AM</li>
+                                <li><i class="fas fa-user-times"></i> User "JaneDoe" banned - 8:15 AM</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                <!-- Security Controls -->
+                <div class="mt-4">
+                    <h3>System Control</h3>
+                    <button class="btn btn-primary" onclick="restartSystem()">Restart System</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

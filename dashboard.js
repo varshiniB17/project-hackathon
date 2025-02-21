@@ -1,55 +1,65 @@
-import React, { useEffect, useState } from "react"; import "bootstrap/dist/css/bootstrap.min.css"; import { FaUsers, FaUserCheck, FaUserTimes, FaExclamationTriangle, FaShieldAlt } from "react-icons/fa";
+// Function to logout
+function logout() {
+    // Clear token and redirect to login page
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
+}
 
-const Dashboard = () => { const [stats, setStats] = useState({ totalUsers: 0, activeUsers: 0, inactiveUsers: 0, failedLogins: 0, securityStatus: "Loading...", });
+// Function to restart the system
+function restartSystem() {
+    alert('System restarting...');
+    // Logic to restart the system
+}
 
-useEffect(() => {
-    fetch("http://localhost:5000/stats")
-        .then(response => response.json())
-        .then(data => setStats(data))
-        .catch(error => console.error("Error fetching stats:", error));
-}, []);
+// Load security logs
+function loadSecurityLogs() {
+    document.getElementById('securityLogs').innerHTML = 'Loading security logs...';
+    // Logic to fetch and display security logs
+}
 
-return (
-    <div className="container mt-4">
-        <h1 className="text-center">Secure Dashboard</h1>
-        <div className="row text-center">
-            <div className="col-md-3">
-                <div className="card p-3 text-primary">
-                    <FaUsers size={40} />
-                    <h3>Total Users</h3>
-                    <p>{stats.totalUsers}</p>
-                </div>
-            </div>
-            <div className="col-md-3">
-                <div className="card p-3 text-success">
-                    <FaUserCheck size={40} />
-                    <h3>Active Users</h3>
-                    <p>{stats.activeUsers}</p>
-                </div>
-            </div>
-            <div className="col-md-3">
-                <div className="card p-3 text-danger">
-                    <FaUserTimes size={40} />
-                    <h3>Inactive Users</h3>
-                    <p>{stats.inactiveUsers}</p>
-                </div>
-            </div>
-            <div className="col-md-3">
-                <div className="card p-3 text-warning">
-                    <FaExclamationTriangle size={40} />
-                    <h3>Failed Logins</h3>
-                    <p>{stats.failedLogins}</p>
-                </div>
-            </div>
-        </div>
-        <div className="card p-3 mt-4 text-center text-info">
-            <FaShieldAlt size={50} />
-            <h2>Security Status</h2>
-            <p>{stats.securityStatus}</p>
-        </div>
-    </div>
-);
+// Load security levels
+function loadSecurityLevels() {
+    document.getElementById('securityLevels').innerHTML = 'Loading security levels...';
+    // Logic to fetch and display security levels
+}
 
+// Load user management data
+function loadUserManagement() {
+    document.getElementById('userManagement').innerHTML = 'Loading user management data...';
+    // Logic to fetch and display user management data
+}
+
+// Load failed attempts
+function loadFailedAttempts() {
+    document.getElementById('failedAttempts').innerHTML = 'Loading failed attempts...';
+    // Logic to fetch and display failed attempts
+}
+
+// Load active users
+function loadActiveUsers() {
+    document.getElementById('activeUsers').innerHTML = 'Loading active users...';
+    // Logic to fetch and display active users
+}
+
+// Load inactive users
+function loadInactiveUsers() {
+    document.getElementById('inactiveUsers').innerHTML = 'Loading inactive users...';
+    // Logic to fetch and display inactive users
+}
+
+// Load banned users
+function loadBannedUsers() {
+    document.getElementById('bannedUsers').innerHTML = 'Loading banned users...';
+    // Logic to fetch and display banned users
+}
+
+// Initial load of dashboard data
+window.onload = function() {
+    loadSecurityLogs();
+    loadSecurityLevels();
+    loadUserManagement();
+    loadFailedAttempts();
+    loadActiveUsers();
+    loadInactiveUsers();
+    loadBannedUsers();
 };
-
-export default Dashboard;
